@@ -1,5 +1,6 @@
 ﻿namespace Sitecore.Support.XA.Foundation.Multisite.Services
 {
+    using Cognifide.PowerShell.Core.Extensions;
     using Sitecore.Data.Comparers;
     using Sitecore.Data.Items;
     using Sitecore.XA.Foundation.Multisite.Services;
@@ -14,7 +15,7 @@
 
         protected override IEnumerable<Item> GetCloneItem(Item item)
         {
-            return item.GetClones().Distinct(new ItemIdComparer());
+            return item.GetClones().Distinct(new ItemEqualityComparer());
         }
     }
 }
